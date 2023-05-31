@@ -1,5 +1,6 @@
 <h2>Enter the words you want to count below:</h2>
-<form method="" action="counter">
+<form method="POST" action="counter">
+    {%csrf_token%}
     <textarea name="words" rows="50" cols="200"></textarea><br>
     <input type="submit">
 </form>
