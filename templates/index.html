@@ -45,7 +45,11 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
+      {%if user.is_authenticated %}
+      <h1 class="logo"><a href="index.html">Welcome, {{user.username}}</a></h1>
+      {% else %}
       <h1 class="logo"><a href="index.html">OnePage</a></h1>
+      {% endif %}
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -75,7 +79,11 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="getstarted scrollto" href="logout">Log Out</a></li>
+          {% else %}
+          <li><a class="getstarted scrollto" href="login">Log In</a></li>
+          {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
